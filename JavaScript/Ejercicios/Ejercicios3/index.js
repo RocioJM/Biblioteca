@@ -23,11 +23,13 @@
     {
         //const valoresAceptados = /^[0-9]+$/;
         let temp = "";
-        if(numero == 0 || Number.isInteger(numero))
+        if(numero == 0 || !Number.isInteger(numero))
         {
             console.warn("No has introducido un numero valido.");
         }else{
-            temp = Parse
+            temp = numero.toString();
+            console.log("Texto:"+temp);
+            //Buscar d incluir el index.js donde esa lo del palindromo.
         }
     }
     let num = 123;
