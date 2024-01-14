@@ -28,11 +28,18 @@
             console.warn("No has introducido un numero valido.");
         }else{
             temp = numero.toString();
-            console.log("Texto:"+temp);
-            //Buscar d incluir el index.js donde esa lo del palindromo.
+            console.log(temp);
+            let AlReves = temp.split("").reverse().join("");
+            console.log(AlReves);
+            if(temp == AlReves)
+            {
+                console.info("Es capicua.");
+            }else{
+                console.info("NO es capicua.");
+            }
         }
     }
-    let num = 123;
+    let num = 123321;
     IsCapicua(num );
 }
 //Version 2
