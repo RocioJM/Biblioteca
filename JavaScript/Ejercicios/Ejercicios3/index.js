@@ -45,5 +45,80 @@
 }
 //Version 2
 {
+    const capicua = (numero = 0 ) =>
+    {
+        if(!numero)
+        {
+            return console.warn("No ingresaste un numero.");
+        }
+        if(typeof numero != "number")
+        {
+            return console.error(`El valor "${numero}" ingresado NO es un numero.`);
+        }
+        numero = numero.toString();
+        let alReves = numero.split("").reverse().join("");
 
+        return (numero === alReves) 
+        ? console.info(`Si es capicua Numero original ${numero}, Numero al reves ${alReves}`)
+        : console.info(`No es capicua Numero original ${numero}, Numero al reves ${alReves}`)
+    }
+
+    //capicua();
+    //capicua(123);
+    //capicua(123321);
+    capicua(212.212);
+}
+
+// 10. Programa una funcion que calcule el factorial de un numero (El factorial de un entero positivo n, se define como el producto de todos los numero enteros positivos desde 1 hasta n). P.E miFuncion(5) devolvera 120.
+//Version 1
+{
+    function calcularFactorial (numero =0)
+    {
+        if(!numero)
+        {
+            return console.warn("No ingresaste un numero.");
+        }
+        if(typeof numero != "number")
+        {
+            return console.error(`El valor "${numero}" ingresado NO es un numero.`);
+        }
+        if (Math.sign(numero)== -1)
+        {
+            return console.error(`El valor "${numero}" no puede ser un nunmero negativo.`);
+        }
+        let factorial=1;
+        for(let i =1; i <= numero ; i++)
+        {
+            factorial = factorial * i;
+        }
+        return factorial;
+    }
+    const num= 4;
+    console.info(`El factorial de ${num} es ${calcularFactorial(num)}.`)
+}
+//Version 2
+{
+    function Factorial (numero = undefined)
+    {
+        if(numero === undefined)
+        {
+            return console.warn("No ingresaste un numero.");
+        }
+        if(typeof numero != "number")
+        {
+            return console.error(`El valor "${numero}" ingresado NO es un numero.`);
+        }
+        if (Math.sign(numero)== -1)
+        {
+            return console.error(`El valor "${numero}" no puede ser un nunmero negativo.`);
+        }
+        let factorial=1;
+        for(let i = numero; i>1 ; i--)
+        {
+            factorial *=  i;
+        }
+        return factorial;
+    }
+    const num= 4;
+    console.info(`El factorial Profe de ${num} es ${calcularFactorial(num)}.`)
 }
