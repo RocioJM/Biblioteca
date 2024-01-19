@@ -91,9 +91,18 @@
         if(fecha===undefined){
             return console.warn("No ingresaste la fecha.");
         }
-        if(fecha===undefined)
+        if(!fecha instanceof Date)
         {
-            return console.warn("No ingresaste la fecha.");
+            return console.error("No has ingresado una fecha valida.");
+        }
+        let hoyMenosFecha = new Date().getTime() - fecha.getTime();
+        let aniosEnMS = 1000*60*60*24*365;//Porque el gettime me lo da en milisegundos
+        let aniosHumanos = Math.floor(hoyMenosFecha/aniosEnMS);
+        if(Math.sign(aniosHumanos))
+        {
+            return console.info(`Han pasado ${aniosHumanos}`);
+        }else{
+            return console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`);
         }
     }
 }
