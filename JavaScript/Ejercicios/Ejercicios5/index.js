@@ -6,7 +6,7 @@
 
 //Version 2
 {
-    const convertirBinarioDEcimal = (numero = undefined, base = undefined) =>
+    const convertirBinarioDEcimal = (numero = 0, base = undefined) =>
     {
         //******** Comprobaciones ******/
         if(numero === 0)
@@ -91,18 +91,29 @@
         if(fecha===undefined){
             return console.warn("No ingresaste la fecha.");
         }
-        if(!fecha instanceof Date)
+        if(!(fecha instanceof Date))
         {
             return console.error("No has ingresado una fecha valida.");
         }
         let hoyMenosFecha = new Date().getTime() - fecha.getTime();
         let aniosEnMS = 1000*60*60*24*365;//Porque el gettime me lo da en milisegundos
         let aniosHumanos = Math.floor(hoyMenosFecha/aniosEnMS);
-        if(Math.sign(aniosHumanos))
+        if(Math.sign(aniosHumanos) === -1)
         {
-            return console.info(`Han pasado ${aniosHumanos}`);
+            return console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}.`);
         }else{
-            return console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`);
+            if(Math.sign(aniosHumanos) === 1)
+            {
+                return console.info(`Han pasado ${aniosHumanos} años desde ${fecha.getFullYear()}.`);
+            }else{
+                return console.info(`EStamos en la fecha ${fecha.getFullYear()}.`);
+            }
+            
         }
     }
+    calcularAnios();
+    calcularAnios({});
+    calcularAnios(new Date());
+    calcularAnios(new Date(1987,10,14));
+    calcularAnios(new Date(2084,10,14));
 }
