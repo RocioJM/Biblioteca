@@ -72,7 +72,24 @@
 // 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
 //Version 1
 {
-
+    function ValidarEmail(email = "")
+    {
+        if(email === "")
+        {
+            return console.warn("No ha introducido ningun email.")
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(emailRegex.test(email))
+        {
+            return console.log("El email es valido.")
+        }else
+        {
+            return console.log("El email no es valido.")
+        }
+    }
+    ValidarEmail();
+    ValidarEmail("rocioasd.com");
+    ValidarEmail("rociojm@gmail.com");
 }
 
 //Version2
