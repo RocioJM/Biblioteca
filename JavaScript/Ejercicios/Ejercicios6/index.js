@@ -42,7 +42,26 @@
 // 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
 //Version 1
 {
-
+    function NombreValido(texto = "")
+    {
+        if(texto === "")
+        {
+            return console.warn("No ha introducido ningun texto.")
+        }
+        if(typeof texto !== `string`)
+        {
+            return console.warn("No hay introducido caracteres de tipo texto.");
+        }
+        let nombreCompleto = texto.split(" ");
+        
+        if(nombreCompleto.length>=2)
+        {
+            return console.log(`el nombre de ${texto} es valido.`);
+        }else{
+            return console.log(`el nombre de ${texto} no es valido.`);
+        }
+    }
+    NombreValido("Hola papa");
 }
 
 //Version2
