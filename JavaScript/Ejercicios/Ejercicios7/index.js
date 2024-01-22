@@ -32,7 +32,37 @@
 //22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
 //Version1
 {
-
+    {
+        function NumAltoYBajo(mArray)
+        {
+            if (!Array.isArray(mArray)) {
+                return console.log("No se proporcionó un array.");
+            }
+            if(mArray.length==0)
+            {
+                return console.log("Array vacio.");
+            }else
+            {
+                let numBajo=0;
+                let numAlto=0;
+                for(valor of mArray)
+                {
+                    if(valor<numBajo)
+                    {
+                        numBajo = valor;
+                    }
+                    if(valor>numAlto)
+                    {
+                        numAlto = valor;
+                    }
+                }
+                return console.log(`El numero bajo del array es ${numBajo}, y el numero alto del array es ${numAlto}.`);
+            }
+        }
+        NumAltoYBajo();//Primer if.
+        NumAltoYBajo([]);//Segundo if.
+        NumAltoYBajo([2,4,-60]);
+    }
 }
 
 //Version 2
