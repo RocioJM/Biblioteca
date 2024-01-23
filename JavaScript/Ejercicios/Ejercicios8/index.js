@@ -3,6 +3,7 @@
 {
     function Ordenacion (arr = undefined)
     {
+        let tiempoInicio = new Date().getTime();
         if(arr === undefined) return console.warn("No ingesaste un arreglo de numeros.");
         if(!Array.isArray(arr)) return console.error("El valor que ingresastes no es un arreglo.");
         if(arr.length===0) return console.error("El arreglo esta vacio.");
@@ -39,11 +40,15 @@
             }
         }
 
+        let tiempoFin = new Date().getTime();
         console.log({
             arr,
             ordenAscendente,
-            ordenDescendente
+            ordenDescendente,
+            tiempoInicio,
+            tiempoFin
         });
+        
     }
     Ordenacion([7, 5,7,8,6]);
 }
@@ -55,9 +60,20 @@
 
 //25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
 //Version1
-{
+// {
+//     function EliminarDuplicados (arr = undefined)
+//     {
+//         if(arr === undefined) return console.warn("No ingesaste un arreglo de numeros.");
+//         if(!Array.isArray(arr)) return console.error("El valor que ingresastes no es un arreglo.");
+//         if(arr.length===0) return console.error("El arreglo esta vacio.");
+//         for(let num of arr)
+//         {
+//             if(typeof num !== "number") return console.error(`El valor "${num}" ingresado, NO es un numero.`);
+//         }
 
-}
+//         Array.
+//     }
+// }
 
 //Version2
 {
