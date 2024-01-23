@@ -4,18 +4,48 @@
     function Ordenacion (arr = undefined)
     {
         if(arr === undefined) return console.warn("No ingesaste un arreglo de numeros.");
-        if(!Array.isArray(mArray)) return console.error("El valor que ingresastes no es un arreglo.");
+        if(!Array.isArray(arr)) return console.error("El valor que ingresastes no es un arreglo.");
         if(arr.length===0) return console.error("El arreglo esta vacio.");
         for(let num of arr)
         {
             if(typeof num !== "number") return console.error(`El valor "${num}" ingresado, NO es un numero.`);
         }
 
-        for(let i = 0; i < arr.length; i++)
+        let ordenAscendente = Array.from(arr);
+        let temp = ordenAscendente[0];
+        for(let i = 0; i < ordenAscendente.length; i++)
         {
-
+            for(let j = i+1; j < ordenAscendente.length; j++)
+            {
+                if(ordenAscendente[i]>ordenAscendente[j])
+                {
+                    temp = ordenAscendente[i];
+                    ordenAscendente[i]=ordenAscendente[j];
+                    ordenAscendente[j]=temp;
+                }
+            }
         }
+        let ordenDescendente = Array.from(arr);
+        for(let i = 0; i < ordenDescendente.length; i++)
+        {
+            for(let j = i+1; j < ordenDescendente.length; j++)
+            {
+                if(ordenDescendente[i]<ordenDescendente[j])
+                {
+                    temp = ordenDescendente[i];
+                    ordenDescendente[i]=ordenDescendente[j];
+                    ordenDescendente[j]=temp;
+                }
+            }
+        }
+
+        console.log({
+            arr,
+            ordenAscendente,
+            ordenDescendente
+        });
     }
+    Ordenacion([7, 5,7,8,6]);
 }
 
 //Version2
